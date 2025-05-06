@@ -4,16 +4,19 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>ICT Matrix Course</title>
-  <link rel="stylesheet" href="styles.css"> <!-- ถ้าต้องการไฟล์ CSS แยก -->
+  <link rel="stylesheet" href="styles.css">
   <script src="https://cdn.jsdelivr.net/npm/typed.js@2.0.12"></script>
   <style>
+    /* Global Styles */
     body {
       font-family: Arial, sans-serif;
       margin: 0;
       padding: 0;
-      background: #0a0a0a;
-      color: #fff;
+      background-color: #0a0a0a;
+      color: white;
     }
+
+    /* Header */
     header {
       display: flex;
       justify-content: space-between;
@@ -24,6 +27,7 @@
     header img {
       max-height: 40px;
     }
+
     .cta-btn {
       background: #ff6600;
       padding: 10px 20px;
@@ -31,56 +35,124 @@
       text-decoration: none;
       border-radius: 5px;
     }
-    .video-container {
-      max-width: 800px;
-      margin: 20px auto;
+
+    /* Background Text Animation */
+    .background-text {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      font-size: 3em;
+      font-weight: bold;
+      color: rgba(255, 102, 0, 0.3);
+      white-space: nowrap;
+      z-index: -1;
+      animation: text-animation 20s linear infinite;
     }
-    .video-container iframe {
-      width: 100%;
-      height: 400px;
+
+    @keyframes text-animation {
+      0% { left: 100%; }
+      100% { left: -100%; }
     }
-    .section-title {
+
+    /* Main Section */
+    .main-content {
       text-align: center;
-      margin: 40px 0;
-      font-size: 2em;
-      color: #ff6600;
+      padding: 50px;
     }
+
+    .main-content h1 {
+      font-size: 3em;
+      margin-bottom: 20px;
+    }
+
     .typed-text {
       font-size: 1.5em;
       color: #ff6600;
-      text-align: center;
+      margin: 20px;
     }
+
+    .button-group {
+      display: flex;
+      justify-content: center;
+      gap: 20px;
+      margin-top: 30px;
+    }
+
+    .button-group .cta-btn {
+      background: #ff6600;
+      padding: 12px 25px;
+      border-radius: 5px;
+      font-size: 1.2em;
+    }
+
+    .button-group .vip-btn {
+      background: #ff0000;
+      padding: 12px 25px;
+      border-radius: 5px;
+      font-size: 1.2em;
+    }
+
+    /* Footer */
     footer {
       text-align: center;
-      padding: 10px;
+      padding: 20px;
       background: #222;
+    }
+
+    footer p {
+      margin: 5px 0;
+    }
+
+    .ebook-link {
+      margin-top: 30px;
+      font-size: 1.2em;
     }
   </style>
 </head>
 <body>
-  <!-- Header -->
+
+  <!-- Background Running Text -->
+  <div class="background-text">Unlock the Power of ICT Trading. Join Now!</div>
+
+  <!-- Header Section -->
   <header>
     <img src="logo.png" alt="Matrix Logo"> <!-- โลโก้ -->
-    <a href="https://example.com" class="cta-btn">Buy Course</a> <!-- ปุ่มซื้อคอร์ส -->
+    <a href="#buy" class="cta-btn">Buy Course</a> <!-- ปุ่มซื้อคอร์ส -->
   </header>
 
-  <!-- Main Section: Introduction and Video -->
-  <div class="section-title">
+  <!-- Main Content -->
+  <div class="main-content">
     <h1>Welcome to ICT Matrix Course</h1>
     <div class="typed-text"></div> <!-- ข้อความวิ่ง -->
+    <p>Learn how to master the market using ICT principles. Become a part of our community!</p>
+
+    <div class="button-group">
+      <a href="#ebook" class="cta-btn">Download Free E-book</a> <!-- ปุ่ม E-book ฟรี -->
+      <a href="#vip" class="vip-btn">VIP Course Access</a> <!-- ปุ่ม VIP -->
+    </div>
   </div>
 
-  <!-- YouTube Video Embed -->
-  <div class="video-container">
-    <iframe src="https://www.youtube.com/embed/VIDEO_ID" frameborder="0" allowfullscreen></iframe> <!-- วิดีโอ -->
+  <!-- Ebook Section -->
+  <div id="ebook" style="text-align:center; margin-top: 50px;">
+    <h2>Download Your Free E-book</h2>
+    <a href="ebook.pdf" class="cta-btn" download>Download Now</a>
   </div>
 
-  <!-- Footer -->
+  <!-- VIP Course Section -->
+  <div id="vip" style="text-align:center; margin-top: 50px;">
+    <h2>Become a VIP Member</h2>
+    <p>Get exclusive access to advanced lessons, live sessions, and more!</p>
+    <a href="#buy" class="vip-btn">Access VIP Course</a> <!-- ปุ่มซื้อ VIP -->
+  </div>
+
+  <!-- Footer Section -->
   <footer>
-    <p>Contact us: info@example.com</p>
+    <p>Contact us: info@ictmatrix.com</p>
     <p>&copy; 2025 ICT Matrix. All rights reserved.</p>
   </footer>
 
+  <!-- Typed.js for animated text -->
   <script>
     var options = {
       strings: ["Unlock the Power of ICT Trading", "Master the Matrix Framework", "Join Our Exclusive Community"],
@@ -90,5 +162,6 @@
     };
     var typed = new Typed(".typed-text", options);
   </script>
+
 </body>
 </html>
