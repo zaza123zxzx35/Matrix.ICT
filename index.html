@@ -1,158 +1,117 @@
+# Create a complete HTML file with Matrix-style animated background, eBook button, VIP section, and course selling section.
+
+html_content = """
 <!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>ICT Matrix</title>
-  <link href="https://fonts.googleapis.com/css2?family=Share+Tech+Mono&display=swap" rel="stylesheet">
-  <script src="https://cdn.jsdelivr.net/npm/typed.js@2.0.12"></script>
+  <title>ICT MATRIX COURSE</title>
   <style>
-    /* Matrix Background Effect */
-    html, body {
+    /* Basic Reset */
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+
+    body, html {
       height: 100%;
-      margin: 0;
-      background: black;
+      font-family: 'Courier New', monospace;
       color: #00ff00;
-      font-family: 'Share Tech Mono', monospace;
+      background: black;
       overflow-x: hidden;
     }
 
-    canvas {
+    /* Matrix Canvas Background */
+    canvas#matrixCanvas {
       position: fixed;
       top: 0;
       left: 0;
-      z-index: -2;
+      z-index: -1;
     }
 
-    header {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      padding: 20px 40px;
-      background: rgba(0, 0, 0, 0.8);
-      border-bottom: 1px solid #00ff00;
+    /* Container Styling */
+    .container {
+      max-width: 960px;
+      margin: 0 auto;
+      padding: 50px 20px;
+      text-align: center;
     }
 
-    header img {
-      height: 50px;
+    h1 {
+      font-size: 3em;
+      margin-bottom: 10px;
     }
 
-    .cta-btn {
+    .tagline {
+      font-size: 1.2em;
+      margin-bottom: 30px;
+      font-style: italic;
+    }
+
+    .btn {
+      display: inline-block;
       background: #00ff00;
       color: black;
-      padding: 10px 20px;
-      border-radius: 5px;
+      padding: 15px 25px;
+      margin: 15px;
       text-decoration: none;
       font-weight: bold;
-      box-shadow: 0 0 10px #00ff00;
+      border-radius: 8px;
+      transition: background 0.3s ease;
     }
 
-    .main-content {
-      text-align: center;
-      padding: 80px 20px;
-    }
-
-    .main-content h1 {
-      font-size: 3em;
-      margin-bottom: 20px;
-      text-shadow: 0 0 15px #00ff00;
-    }
-
-    .typed-text {
-      font-size: 1.5em;
-      margin: 20px 0;
-      text-shadow: 0 0 10px #00ff00;
-    }
-
-    .button-group {
-      margin-top: 40px;
-      display: flex;
-      justify-content: center;
-      gap: 20px;
-      flex-wrap: wrap;
-    }
-
-    .cta-btn, .vip-btn {
-      font-size: 1.2em;
-    }
-
-    .vip-btn {
-      background: #ff0000;
-      color: white;
-      box-shadow: 0 0 10px #ff0000;
-      padding: 10px 20px;
-      border-radius: 5px;
-      text-decoration: none;
-    }
-
-    section {
-      padding: 60px 20px;
-      text-align: center;
-    }
-
-    footer {
-      text-align: center;
-      padding: 20px;
-      background: rgba(0,0,0,0.8);
-      border-top: 1px solid #00ff00;
+    .btn:hover {
+      background: #0f0f0f;
       color: #00ff00;
     }
 
-    /* For mobile */
-    @media screen and (max-width: 600px) {
-      .main-content h1 {
-        font-size: 2em;
-      }
+    .section {
+      background-color: rgba(0, 0, 0, 0.6);
+      margin: 30px 0;
+      padding: 20px;
+      border: 1px solid #00ff00;
+      border-radius: 12px;
+    }
+
+    .vip {
+      background: rgba(0, 255, 0, 0.1);
+      padding: 20px;
+      border: 1px dashed #00ff00;
+      border-radius: 12px;
+    }
+
+    footer {
+      margin-top: 50px;
+      font-size: 0.8em;
+      color: #009900;
     }
   </style>
 </head>
 <body>
-
-<!-- Matrix Canvas Background -->
 <canvas id="matrixCanvas"></canvas>
+<div class="container">
+  <h1>ICT MATRIX COURSE</h1>
+  <p class="tagline">“The truth is not on the chart. It’s in the code.”</p>
 
-<header>
-  <img src="logo.png" alt="ICT Matrix Logo"/>
-  <a href="#buy" class="cta-btn">Buy Course</a>
-</header>
-
-<div class="main-content">
-  <h1>Welcome to the ICT Matrix</h1>
-  <div class="typed-text"></div>
-  <p>Decode the market. Join the revolution. Trade the Matrix way.</p>
-
-  <div class="button-group">
-    <a href="#ebook" class="cta-btn">📘 Free E-book</a>
-    <a href="#vip" class="vip-btn">💎 VIP Access</a>
+  <div class="section">
+    <h2>📘 ดาวน์โหลด E-Book ฟรี</h2>
+    <a class="btn" href="#">ดาวน์โหลด E-Book</a>
   </div>
+
+  <div class="section">
+    <h2>🎓 สมัครเรียนคอร์สเทรด</h2>
+    <p>เรียนรู้ระบบ ICT แบบลึกซึ้ง พร้อมแนวคิดแบบ The Matrix</p>
+    <a class="btn" href="#">สมัครคอร์ส</a>
+  </div>
+
+  <div class="section vip">
+    <h2>🧠 พื้นที่สำหรับ VIP</h2>
+    <p>กลุ่มลับ แชร์เทคนิคพิเศษ รายสัปดาห์ พร้อม Live Mentoring</p>
+    <a class="btn" href="#">เข้าร่วมกลุ่ม VIP</a>
+  </div>
+
+  <footer>
+    © 2025 ICT Matrix - The Code is the Key.
+  </footer>
 </div>
-
-<section id="ebook">
-  <h2>📘 Download Your Free E-book</h2>
-  <p>Learn ICT core concepts, setups, and strategy.</p>
-  <a href="ebook.pdf" class="cta-btn" download>Download Now</a>
-</section>
-
-<section id="vip">
-  <h2>💎 Become a VIP Member</h2>
-  <p>Private mentorship, full access to advanced training, and exclusive resources.</p>
-  <a href="#buy" class="vip-btn">Join VIP</a>
-</section>
-
-<footer>
-  <p>&copy; 2025 ICT Matrix. All rights reserved.</p>
-  <p>Contact: info@ictmatrix.com</p>
-</footer>
-
-<!-- Typed.js Text Effect -->
-<script>
-  new Typed(".typed-text", {
-    strings: ["Enter the Market Matrix...", "Decode the Code.", "Trade the Truth."],
-    typeSpeed: 80,
-    backSpeed: 40,
-    loop: true
-  });
-</script>
 
 <!-- Matrix Effect Script -->
 <script>
@@ -187,6 +146,13 @@
 
   setInterval(drawMatrix, 35);
 </script>
-
 </body>
 </html>
+"""
+
+# Save to a file for download
+file_path = "/mnt/data/ict-matrix-landing.html"
+with open(file_path, "w", encoding="utf-8") as f:
+    f.write(html_content)
+
+file_path
